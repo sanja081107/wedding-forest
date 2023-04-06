@@ -85,9 +85,9 @@
 
       {% if name_boy and name_girl %}
           <h3 class="u-align-center u-text u-text-9">Дорогие {{ name_boy }} и {{ name_girl }}</h3>
-      {% elif name_girl == None %}
+      {% elif name_girl == None and name_boy %}
           <h3 class="u-align-center u-text u-text-9">Дорогой {{ name_boy }}</h3>
-      {% elif name_boy == None %}
+      {% elif name_boy == None and name_girl %}
           <h3 class="u-align-center u-text u-text-9">Дорогая {{ name_girl }}</h3>
       {% else %}
           <h3 class="u-align-center u-text u-text-9">Дорогие гости</h3>
