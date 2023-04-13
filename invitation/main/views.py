@@ -20,18 +20,21 @@ def home(request):
 
 def checking_form(request):
     if request.method == 'POST':
-        r1 = request.POST['radiobutton']
-        print(r1)
 
         name_man = request.POST['name_man']
         name_woman = request.POST['name_woman']
-
+        if name_man == 'None' and name_woman == 'None':
+            name = request.POST['name']
+        else:
+            name = None
+        radiobutton = request.POST['radiobutton']
         allergies = request.POST['allergies']
         night = request.POST['night']
         tomorrow = request.POST['tomorrow']
-        print(name_man, name_woman, allergies, night, tomorrow)
+        arrive = request.POST['arrive']
+        print(name_man, name_woman, name, radiobutton, allergies, night, tomorrow, arrive)
 
-        return HttpResponse(f"""<a id="form-send" hx-get="/send_mails/?name_man={name_man}&name_woman={name_woman}&allergies={allergies}&night={night}&tomorrow={tomorrow}" 
+        return HttpResponse(f"""<a id="form-send" hx-get="/send_mails/?name_man={name_man}&name_woman={name_woman}&name={name}&radiobutton={radiobutton}&allergies={allergies}&night={night}&tomorrow={tomorrow}&arrive={arrive}" 
                                     hx-trigger="click" hx-target="#form-result" href="#" hidden>Отправить!
                                 </a>""")
 
@@ -40,23 +43,31 @@ def send_mails(request):
     try:
         man = request.GET.get('name_man')
         woman = request.GET.get('name_woman')
-        subject = 'Отправка формы'
+        name = request.GET.get('name')
+        radiobutton = request.GET.get('radiobutton')
+        allergies = request.GET.get('allergies')
+        night = request.GET.get('night')
+        arrive = request.GET.get('arrive')
 
-        if man and woman:
-            message = f'Форма отправлена от {man} и {woman}'
-        elif man is None and woman:
-            message = f'Форма отправлена от {woman}'
-        elif woman is None and man:
-            message = f'Форма отправлена от {man}'
+        if man != 'None' and woman != 'None':
+            subject = f'Ответ от {man} и {woman}'
+        elif man == 'None' and woman != 'None':
+            subject = f'Ответ от {woman}'
+        elif woman == 'None' and man != 'None':
+            subject = f'Ответ от {man}'
         else:
-            message = f'Форма отправлена от incognito'
+            subject = f'Ответ от {name}'
 
-        print(man, woman)
+        message = f'Ответ: {radiobutton} \n' \
+                  f'Аллергии: {allergies} \n' \
+                  f'Ночевка: {night} \n' \
+                  f'Прибытие: {arrive}'
 
         mail = 'alexander_misyuta@mail.ru'
         send_mail(subject, message, 'sanja081107@gmail.com', [mail])
 
         return HttpResponse("")
+
     except:
         return HttpResponse("")
 
