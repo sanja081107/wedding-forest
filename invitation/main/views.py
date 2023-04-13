@@ -41,20 +41,20 @@ def checking_form(request):
 
 def send_mails(request):
     try:
-        man = request.GET.get('name_man')
-        woman = request.GET.get('name_woman')
+        name_man = request.GET.get('name_man')
+        name_woman = request.GET.get('name_woman')
         name = request.GET.get('name')
         radiobutton = request.GET.get('radiobutton')
         allergies = request.GET.get('allergies')
         night = request.GET.get('night')
         arrive = request.GET.get('arrive')
 
-        if man != 'None' and woman != 'None':
-            subject = f'Ответ от {man} и {woman}'
-        elif man == 'None' and woman != 'None':
-            subject = f'Ответ от {woman}'
-        elif woman == 'None' and man != 'None':
-            subject = f'Ответ от {man}'
+        if name_man != 'None' and name_woman != 'None':
+            subject = f'Ответ от {name_man} и {name_woman}'
+        elif name_man == 'None' and name_woman != 'None':
+            subject = f'Ответ от {name_woman}'
+        elif name_woman == 'None' and name_man != 'None':
+            subject = f'Ответ от {name_man}'
         else:
             subject = f'Ответ от {name}'
 
@@ -69,11 +69,23 @@ def send_mails(request):
         return HttpResponse("")
 
     except:
+        print('error')
         return HttpResponse("")
 
 
 def not_will_be(request):
-    return HttpResponse("""<div class="u-form-send-error u-form-send-message" style="display: block;">Thank you! Your message has been sent.<a href="#" class="u-form-send-message-close">x</a></div>""")
+
+    name_man = request.GET.get('name_man')
+    name_woman = request.GET.get('name_woman')
+
+    if name_man == 'None' and name_woman == 'None':
+        name = 'incognito'
+    else:
+        name = None
+
+    return HttpResponse(f"""<a id="form-send" hx-get="/send_mails/?name_man={name_man}&name_woman={name_woman}&name={name}&radiobutton=No&allergies=No&night=No&tomorrow=No&arrive=No" 
+                                hx-trigger="click" hx-target="#form-result" href="#" hidden>Отправить!
+                            </a>""")
 
 
 # def check_form_name(request):
