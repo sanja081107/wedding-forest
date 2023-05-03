@@ -47,6 +47,7 @@ def send_mails(request):
         radiobutton = request.GET.get('radiobutton')
         allergies = request.GET.get('allergies')
         night = request.GET.get('night')
+        tomorrow = request.GET.get('tomorrow')
         arrive = request.GET.get('arrive')
 
         if name_man != 'None' and name_woman != 'None':
@@ -61,6 +62,7 @@ def send_mails(request):
         message = f'Ответ: {radiobutton} \n' \
                   f'Аллергии: {allergies} \n' \
                   f'Ночевка: {night} \n' \
+                  f'Второй день: {tomorrow}' \
                   f'Прибытие: {arrive}'
 
         mail = 'alexander_misyuta@mail.ru'
