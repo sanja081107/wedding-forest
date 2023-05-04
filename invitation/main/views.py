@@ -62,7 +62,7 @@ def send_mails(request):
         message = f'Ответ: {radiobutton} \n' \
                   f'Аллергии: {allergies} \n' \
                   f'Ночевка: {night} \n' \
-                  f'Второй день: {tomorrow}' \
+                  f'Второй день: {tomorrow} \n' \
                   f'Прибытие: {arrive}'
 
         mail = 'alexander_misyuta@mail.ru'
