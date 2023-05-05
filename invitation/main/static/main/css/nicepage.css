@@ -17490,7 +17490,7 @@ section.u-opacity-70:before,
 .u-opacity-70 > .u-container-layout:before,
 .u-opacity-70 > .u-inner-container-layout:before,
 .u-opacity-70.u-sidenav:before {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 a.u-opacity-70,
 span.u-opacity-70,
@@ -24926,7 +24926,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Roboto,sans-serif;
+  font-family: none;
 }
 /*end-variables font-family*/
 /*begin-variables color*/
@@ -24966,7 +24966,7 @@ h6 {
 .u-button-style.u-active-none:active,
 .u-button-style.u-active-none.active,
 li.active > .u-button-style.u-active-none {
-  color: inherit !important;
+  color: black;
   background-color: transparent !important;
 }
 .u-button-style.u-border-none,
@@ -27667,7 +27667,7 @@ section.u-palette-1-light-3:before,
 .u-container-layout.u-container-layout.u-palette-1-light-3:before,
 .u-table-alt-palette-1-light-3 tr:nth-child(even) {
   color: #111111;
-  background-color: #e9f2fa;
+  background-color: lightgray;
 }
 .u-input.u-palette-1-light-3,
 .u-field-input.u-palette-1-light-3,
@@ -27725,7 +27725,7 @@ section.u-palette-1-base:before,
 .u-container-layout.u-container-layout.u-palette-1-base:before,
 .u-table-alt-palette-1-base tr:nth-child(even) {
   color: #ffffff;
-  background-color: #478ac9;
+  background-color: white;
 }
 .u-input.u-palette-1-base,
 .u-field-input.u-palette-1-base,
@@ -28188,15 +28188,15 @@ section.u-palette-2-base:before,
 .u-palette-2-base.u-sidenav:before,
 .u-container-layout.u-container-layout.u-palette-2-base:before,
 .u-table-alt-palette-2-base tr:nth-child(even) {
-  color: #ffffff;
-  background-color: #db545a;
+  color: black;
+  background-color: white;
 }
 .u-input.u-palette-2-base,
 .u-field-input.u-palette-2-base,
 .u-button-style.u-palette-2-base,
 .u-button-style.u-palette-2-base[class*="u-border-"] {
-  color: #ffffff !important;
-  background-color: #db545a !important;
+  color: black;
+  background-color: white;
 }
 .u-button-style.u-palette-2-base:hover,
 .u-button-style.u-palette-2-base[class*="u-border-"]:hover,
@@ -34336,14 +34336,14 @@ input.u-field-input.u-field-input.u-border-active-grey-light-3:checked {
   stroke: #ffffff;
 }
 .u-button-style.u-border-white {
-  border-color: #ffffff !important;
-  color: #ffffff !important;
+  border-color: black;
+  color: black;
   background-color: transparent !important;
 }
 .u-button-style.u-border-white:hover,
 .u-button-style.u-border-white:focus {
   border-color: transparent !important;
-  color: #e6e6e6 !important;
+  color: black !important;
   background-color: transparent !important;
 }
 .u-border-hover-white:hover,
@@ -40111,7 +40111,7 @@ li.active > a.u-button-style.u-text-body-alt-color,
 li.active > a.u-button-style.u-text-body-alt-color[class*="u-border-"],
 a.u-button-style.u-text-body-alt-color,
 a.u-button-style.u-text-body-alt-color[class*="u-border-"] {
-  color: #ffffff !important;
+  color: black;
 }
 a.u-button-style.u-text-body-alt-color:hover,
 a.u-button-style.u-text-body-alt-color[class*="u-border-"]:hover,

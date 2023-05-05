@@ -541,6 +541,10 @@
     padding-top: 30px;
   }
 
+  #ex1, #ex2, #ex3, #ex4 {
+    border-radius: 20px;
+  }
+
   .u-section-1 .u-layout-cell-2 {
     min-height: 100px;
   }
@@ -720,9 +724,10 @@
 
   .u-section-1 .u-text-10 {
     width: 340px;
-    margin-top: 7px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 15px;
   }
 
   .u-section-1 .u-countdown-1 {
@@ -733,6 +738,7 @@
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 15px;
   }
 
   .u-section-1 .u-text-12 {

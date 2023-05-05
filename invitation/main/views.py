@@ -18,6 +18,10 @@ def home(request):
     return render(request, 'main/index.html', context)
 
 
+def gallery(request):
+    return render(request, 'main/gallery.html')
+
+
 def checking_form(request):
     if request.method == 'POST':
 
