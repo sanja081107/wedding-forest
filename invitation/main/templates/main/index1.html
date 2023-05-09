@@ -411,5 +411,21 @@
       </p>
       <span>Alexander Misyuta</span>
     </section>
-  
+
+    <script>
+        $(document).ready(function(){
+            $("#menu").on("click","a", function (event) {
+
+                event.preventDefault();
+
+                var id  = $(this).attr('href');
+
+                if (id != 'gallery' || id != 'location') {
+                    var top = $(id).offset().top;
+                    $('body,html').animate({scrollTop: top}, 1500);
+                };
+            });
+        });
+    </script>
+
 </body></html>

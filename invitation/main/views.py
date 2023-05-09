@@ -19,7 +19,7 @@ def home(request):
 
 
 def gallery(request):
-    return render(request, 'main/gallery.html')
+    return render(request, 'main/photos.html')
 
 
 def checking_form(request):
