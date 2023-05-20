@@ -1,6 +1,8 @@
 from django.http import HttpResponseNotFound, HttpResponse
 from django.core.mail import send_mail
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from main.forms import WeddingPhotosForm
+from main.models import Wedding, WeddingPhotos
 
 
 def pageNotFound(request, exception):
@@ -19,7 +21,17 @@ def home(request):
 
 
 def gallery(request):
-    return render(request, 'main/photos.html')
+    form = WeddingPhotosForm()
+    post = Wedding.objects.all().first()
+    if request.method == 'POST':
+        for item in request.FILES.getlist('photos'):
+            WeddingPhotos.objects.create(post=post, photos=item)
+        return redirect('gallery')
+    context = {
+        'form': form,
+        'post': post
+    }
+    return render(request, 'main/photos.html', context)
 
 
 def checking_form(request):
