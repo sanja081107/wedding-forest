@@ -9,7 +9,7 @@ class WeddingPhotosForm(ModelForm):
         model = WeddingPhotos
         fields = ['photos']
         widgets = {
-            'photos': forms.FileInput(attrs={'class': 'form-control', 'multiple': 'multiple'}),
+            'photos': forms.FileInput(attrs={'multiple': 'multiple'}),
         }
         labels = {
             'photos': ''
