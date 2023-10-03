@@ -1,2 +1,5 @@
 venv/
 /invitation/password.py
+.idea
+.env.docker
+.env
