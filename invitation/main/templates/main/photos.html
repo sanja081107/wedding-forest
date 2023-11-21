@@ -35,7 +35,11 @@
   <body class="u-body u-xl-mode" data-lang="ru">
     <section class="u-clearfix u-image u-section-1" id="sec-a56c" data-image-width="1980" data-image-height="1320">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-custom-font u-font-merriweather u-text u-text-default u-text-1">Галерея</h2>
+          <div class="row">
+              <div class="col"><a href="{% url 'home' %}"><h5 class="u-custom-font u-text u-text-1">&laquo;&laquo;</h5></a></div>
+              <div class="col"><h2 class="u-custom-font u-font-merriweather u-text u-text-default u-text-1">Галерея</h2></div>
+              <div class="col"></div>
+          </div>
 
         {% if request.user.is_staff %}
           <form method="post" enctype="multipart/form-data">
@@ -51,8 +55,8 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-expanded-width u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1">
           <div class="u-gallery-inner u-gallery-inner-1">
-            {% if post.wedding_photos.all %}
-              {% for el in post.wedding_photos.all %}
+            {% if photos %}
+              {% for el in photos %}
                 <div class="u-effect-fade u-gallery-item">
                   <div style="width: 300px; height: 300px;" class="u-back-slide">
                     <img class="u-back-image u-expanded" src="{{ el.photos.url }}">
@@ -120,7 +124,28 @@
               </div>
             {% endif %}
           </div>
-        </div>
+
+          <!--Пагинация-->
+
+                <div style="margin-top: 20px; text-align: left;">
+                    {% if page_obj.has_other_pages %}
+                        {% for p in paginator.page_range %}
+                            {% if page_obj.number == p %}
+                                <btn class="btn btn-secondary" style="width:40px; margin: 2px 2px;">{{ p }}</btn>
+                            {% else %}
+                                <a class="btn btn-success" style="width:40px; margin: 2px 2px;" href="?page={{ p }}">{{ p }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <div class="page-item disabled">
+                            <span class="page-link">1</span>
+                        </div>
+                    {% endif %}
+                </div>
+
+          <!--Конец пагинации-->
+
+        </div><br><br><br><br><br><br>
       </div>
     </section>
     

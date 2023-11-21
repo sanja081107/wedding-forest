@@ -1,4 +1,5 @@
 venv/
+/invitation/media
 /invitation/password.py
 .idea
 .env.docker

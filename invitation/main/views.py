@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.http import HttpResponseNotFound, HttpResponse
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
@@ -22,14 +23,22 @@ def home(request):
 
 def gallery(request):
     form = WeddingPhotosForm()
-    post = Wedding.objects.all().first()
+    post = Wedding.objects.get(title='wedding-forest')
     if request.method == 'POST':
         for item in request.FILES.getlist('photos'):
             WeddingPhotos.objects.create(post=post, photos=item)
         return redirect('gallery')
+
+    photos = post.wedding_photos.all()
+    paginator = Paginator(photos, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     context = {
+        'photos': page_obj,
+        'paginator': paginator,
+        'page_obj': page_obj,
         'form': form,
-        'post': post
     }
     return render(request, 'main/photos.html', context)
 
